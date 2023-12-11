@@ -1,8 +1,9 @@
 import 'package:fitness_tracker/models/exercise_goals.dart';
 import 'package:fitness_tracker/models/exercises_types.dart';
-import 'package:fitness_tracker/screens/widgets/exercise_card.dart';
-import 'package:fitness_tracker/screens/widgets/goal_chips.dart';
-import 'package:fitness_tracker/screens/widgets/statistic_card.dart';
+import 'package:fitness_tracker/screens/exercises_list_screen/exercises_list_screen.dart';
+import 'package:fitness_tracker/screens/home_screen/widgets/exercise_card.dart';
+import 'package:fitness_tracker/screens/home_screen/widgets/goal_chips.dart';
+import 'package:fitness_tracker/screens/home_screen/widgets/statistic_card.dart';
 import 'package:fitness_tracker/utils/image_util.dart';
 import 'package:fitness_tracker/widgets/section.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,13 @@ class HomeScreen extends StatelessWidget {
             Section(
               title: 'Ostatnie aktywności',
               icon: Icons.arrow_forward,
+              iconFunction: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ExercisesListScreen(),
+                  ),
+                );
+              },
               content: SizedBox(
                 height: 165,
                 child: ListView(

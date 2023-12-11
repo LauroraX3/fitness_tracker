@@ -13,7 +13,7 @@ class Section extends StatelessWidget {
 
   final String title;
   final IconData? icon;
-  final Function? iconFunction;
+  final VoidCallback? iconFunction;
   final Widget? content;
 
   @override
@@ -32,7 +32,7 @@ class Section extends StatelessWidget {
             ),
             if (icon != null)
               IconButton(
-                onPressed: () {},
+                onPressed: iconFunction,
                 icon: Icon(icon),
                 color: AppColor.lightGreen,
               ),

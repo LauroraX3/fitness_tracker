@@ -1,15 +1,16 @@
 import 'package:equatable/equatable.dart';
+import 'package:fitness_tracker/models/exercises_types.dart';
 
 class Exercise extends Equatable {
   const Exercise({
     required this.id,
-    required this.typeId,
+    required this.type,
     required this.createdDate,
     required this.duration,
   });
 
   final String id;
-  final String typeId;
+  final ExerciseTypes type;
   final DateTime createdDate;
   final DateTime duration;
 
@@ -21,7 +22,7 @@ class Exercise extends Equatable {
   // TODO: implement props
   List<Object?> get props => [
         id,
-        typeId,
+        type,
         createdDate,
         duration,
       ];

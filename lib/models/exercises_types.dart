@@ -1,6 +1,17 @@
 import 'package:equatable/equatable.dart';
+import 'package:fitness_tracker/style/app_color.dart';
+import 'package:flutter/material.dart';
 
-enum DifficultyLevel { easy, medium, hard }
+enum DifficultyLevel {
+  easy('Łatwy', AppColor.lightGreen),
+  medium('Średni', AppColor.yellow),
+  hard('Trudny', AppColor.red);
+
+  const DifficultyLevel(this.label, this.labelColor);
+
+  final String label;
+  final Color labelColor;
+}
 
 class ExerciseTypes extends Equatable {
   const ExerciseTypes({
@@ -18,7 +29,6 @@ class ExerciseTypes extends Equatable {
   void fromJson() {}
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         id,
         name,

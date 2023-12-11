@@ -2,19 +2,19 @@ import 'package:equatable/equatable.dart';
 import 'package:fitness_tracker/models/statistic.dart';
 
 class Statistics extends Equatable {
-  Statistics({
+  const Statistics({
     required this.id,
-    required this.data,
+    this.data = const <int, Statistic>{},
   });
 
   final String id;
-  var data = <int, Statistic>{};
+  final Map<int, Statistic> data;
 
   void fromJson() {}
+
   void toJson() {}
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         id,
         data,

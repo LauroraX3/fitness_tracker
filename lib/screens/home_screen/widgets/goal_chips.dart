@@ -1,7 +1,7 @@
 import 'package:fitness_tracker/style/app_color.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/date_util.dart';
+import '../../../utils/date_util.dart';
 
 class GoalsChips extends StatelessWidget {
   const GoalsChips(

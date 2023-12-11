@@ -1,8 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class Statistic extends Equatable {
-  const Statistic(
-      {required this.calories, required this.totalTrainingTime, this.image});
+  const Statistic({
+    required this.calories,
+    required this.totalTrainingTime,
+    this.image,
+  });
 
   final double calories;
   final DateTime totalTrainingTime;

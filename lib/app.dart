@@ -1,4 +1,4 @@
-import 'package:fitness_tracker/screens/home_screen.dart';
+import 'package:fitness_tracker/screens/home_screen/home_screen.dart';
 import 'package:fitness_tracker/style/app_color.dart';
 import 'package:fitness_tracker/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
