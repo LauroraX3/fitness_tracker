@@ -23,20 +23,14 @@ class ExerciseTile extends StatelessWidget {
           height: 50,
           child: Image.memory(
             fromBase64ToBytes(exercise.type.image),
-            width: 55,
-            height: 55,
           ),
         ),
       ),
       title: Text(exercise.type.name),
       titleTextStyle: const TextStyle(color: AppColor.beige, fontSize: 18),
-      // subtitle: Text(
-      //     '${exercise.type.difficultyLevel.label}, ${DateFormat('H', 'pl').format(exercise.duration)} h ${DateFormat('m', 'pl').format(exercise.duration)} m ${DateFormat('H', 'pl').format(exercise.duration)} s aktywności'),
       subtitle: RichText(
         text: TextSpan(
-          style: TextStyle(
-              color: exercise
-                  .type.difficultyLevel.labelColor), // Default text style
+          style: TextStyle(color: exercise.type.difficultyLevel.labelColor),
           children: [
             TextSpan(
               text: '${exercise.type.difficultyLevel.label},  ',
@@ -50,8 +44,7 @@ class ExerciseTile extends StatelessWidget {
       subtitleTextStyle:
           TextStyle(color: exercise.type.difficultyLevel.labelColor),
       trailing: Text(DateFormat('Hm', 'pl').format(exercise.createdDate)),
-      leadingAndTrailingTextStyle:
-          const TextStyle(color: AppColor.veryDarkGreen),
+      leadingAndTrailingTextStyle: const TextStyle(color: AppColor.beige),
     );
   }
 }

@@ -66,22 +66,18 @@ String fullDateTimeAsString(DateTime datetime) {
 String formatDuration(DateTime duration) {
   String formattedDuration = '';
 
-  // Add hours only if they are greater than 0.
   if (duration.hour > 0) {
     formattedDuration += "${duration.hour} h ";
   }
 
-  // Add minutes only if they are greater than 0.
   if (duration.minute > 0) {
     formattedDuration += "${duration.minute} m ";
   }
 
-  // Add seconds only if they are greater than 0.
   if (duration.second > 0) {
     formattedDuration += "${duration.second} s ";
   }
 
-  // Trim the trailing space and add "aktywności" if there was any component added.
   if (formattedDuration.isNotEmpty) {
     formattedDuration = "${formattedDuration.trim()} aktywności";
   }

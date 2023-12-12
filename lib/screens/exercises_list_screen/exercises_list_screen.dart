@@ -154,8 +154,7 @@ class _ExercisesListScreenState extends State<ExercisesListScreen> {
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     fullDateTimeAsString(exercisesGroup[index].date),
-                    style: const TextStyle(
-                        color: AppColor.veryDarkGreen, fontSize: 16),
+                    style: const TextStyle(color: AppColor.beige, fontSize: 16),
                   ),
                 ),
                 ...List.generate(
