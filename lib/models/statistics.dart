@@ -10,9 +10,15 @@ class Statistics extends Equatable {
   final String id;
   final Map<int, Statistic> data;
 
-  void fromJson() {}
+  factory Statistics.fromJson(Map<String, dynamic> json) {
+    return Statistics(
+        id: json['id'] as String, data: json['data'] as Map<int, Statistic>);
+  }
 
-  void toJson() {}
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'data': data,
+      };
 
   @override
   List<Object?> get props => [

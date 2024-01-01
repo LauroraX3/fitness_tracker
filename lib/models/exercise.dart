@@ -14,9 +14,20 @@ class Exercise extends Equatable {
   final DateTime createdDate;
   final DateTime duration;
 
-  void fromJson() {}
+  factory Exercise.fromJson(Map<String, dynamic> json) {
+    return Exercise(
+        id: json['id'] as String,
+        type: json['type'] as ExerciseTypes,
+        createdDate: json['createdDate'] as DateTime,
+        duration: json['duration'] as DateTime);
+  }
 
-  void toJson() {}
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'type': type,
+        'createdDate': createdDate,
+        'duration': duration,
+      };
 
   @override
   // TODO: implement props

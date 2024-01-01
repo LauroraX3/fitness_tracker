@@ -13,6 +13,15 @@ class App extends StatelessWidget {
     return MaterialApp(
       locale: Locale('pl', 'PL'),
       supportedLocales: const <Locale>[Locale('pl', 'PL')],
+      theme: ThemeData(
+        primaryColor: AppColor.darkGreen,
+        backgroundColor: AppColor.darkGreen,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: AppColor.darkGreen,
+          ),
+        ),
+      ),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

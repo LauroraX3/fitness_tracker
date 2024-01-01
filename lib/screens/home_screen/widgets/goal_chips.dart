@@ -1,3 +1,4 @@
+import 'package:fitness_tracker/models/exercises_types.dart';
 import 'package:fitness_tracker/style/app_color.dart';
 import 'package:flutter/material.dart';
 

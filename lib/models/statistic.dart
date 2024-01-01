@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:equatable/equatable.dart';
 
 class Statistic extends Equatable {
@@ -11,9 +13,18 @@ class Statistic extends Equatable {
   final DateTime totalTrainingTime;
   final String? image;
 
-  void fromJson() {}
+  factory Statistic.fromJson(Map<String, dynamic> json) {
+    return Statistic(
+        calories: json['calories'] as double,
+        totalTrainingTime: json['totalTrainingTime'] as DateTime,
+        image: json['image'] as String);
+  }
 
-  void toJson() {}
+  Map<String, dynamic> toJson() => {
+        'calories': calories,
+        'totalTrainingTime': totalTrainingTime,
+        'image': image,
+      };
 
   @override
   // TODO: implement props

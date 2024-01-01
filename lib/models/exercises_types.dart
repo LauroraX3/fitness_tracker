@@ -26,7 +26,13 @@ class ExerciseTypes extends Equatable {
   final DifficultyLevel difficultyLevel;
   final String image;
 
-  void fromJson() {}
+  factory ExerciseTypes.fromJson(Map<String, dynamic> json) {
+    return ExerciseTypes(
+        id: json['id'] as String,
+        name: json['name'] as String,
+        difficultyLevel: json['difficultyLevel'] as DifficultyLevel,
+        image: json['image'] as String);
+  }
 
   @override
   List<Object?> get props => [
