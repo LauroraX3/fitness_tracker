@@ -1,36 +1,39 @@
-import 'dart:ffi';
-
 import 'package:equatable/equatable.dart';
 
 class Statistic extends Equatable {
   const Statistic({
+    required this.id,
     required this.calories,
-    required this.totalTrainingTime,
-    this.image,
+    required this.trainingTimeInHours,
+    required this.trainingTimeInMinutes,
   });
 
-  final double calories;
-  final DateTime totalTrainingTime;
-  final String? image;
+  final String id;
+  final int calories;
+  final int trainingTimeInHours;
+  final int trainingTimeInMinutes;
 
   factory Statistic.fromJson(Map<String, dynamic> json) {
     return Statistic(
-        calories: json['calories'] as double,
-        totalTrainingTime: json['totalTrainingTime'] as DateTime,
-        image: json['image'] as String);
+      id: json['id'] as String,
+      calories: json['calories'] as int,
+      trainingTimeInHours: json['trainingTimeInHours'] as int,
+      trainingTimeInMinutes: json['trainingTimeInMinutes'] as int,
+    );
   }
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'calories': calories,
-        'totalTrainingTime': totalTrainingTime,
-        'image': image,
+        'trainingTimeInHours': trainingTimeInHours,
+        'trainingTimeInMinutes': trainingTimeInMinutes,
       };
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
+        id,
         calories,
-        totalTrainingTime,
-        image,
+        trainingTimeInHours,
+        trainingTimeInMinutes,
       ];
 }

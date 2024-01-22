@@ -1,5 +1,4 @@
 import 'package:fitness_tracker/style/app_color.dart';
-import 'package:fitness_tracker/utils/date_util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -8,12 +7,12 @@ class ExerciseCard extends StatelessWidget {
     super.key,
     required this.imageBytes,
     required this.name,
-    required this.time,
+    required this.duration,
   });
 
   final Uint8List imageBytes;
   final String name;
-  final DateTime time;
+  final String duration;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class ExerciseCard extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              durationToString(time),
+              duration,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: AppColor.beige,

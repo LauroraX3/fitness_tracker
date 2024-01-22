@@ -1,12 +1,14 @@
 import 'package:intl/intl.dart';
 
-String durationToString(DateTime duration) {
+String durationToString(int? hours, int? minutes) {
+  if (hours == null && minutes == null) {
+    return 'brak aktywności';
+  }
+
   String durationTime = '';
   String text = '';
 
-  final hours = duration.hour;
-
-  switch (hours) {
+  switch (hours ?? 0) {
     case 0:
       text = '';
     case 1:
@@ -27,9 +29,7 @@ String durationToString(DateTime duration) {
     text = '';
   }
 
-  final minutes = duration.minute;
-
-  switch (minutes) {
+  switch (minutes ?? 0) {
     case 0:
       text = '';
     case 1:
@@ -61,26 +61,4 @@ String durationToString(DateTime duration) {
 
 String fullDateTimeAsString(DateTime datetime) {
   return DateFormat('E d MMMM | y', 'pl').format(datetime);
-}
-
-String formatDuration(DateTime duration) {
-  String formattedDuration = '';
-
-  if (duration.hour > 0) {
-    formattedDuration += "${duration.hour} h ";
-  }
-
-  if (duration.minute > 0) {
-    formattedDuration += "${duration.minute} m ";
-  }
-
-  if (duration.second > 0) {
-    formattedDuration += "${duration.second} s ";
-  }
-
-  if (formattedDuration.isNotEmpty) {
-    formattedDuration = "${formattedDuration.trim()} aktywności";
-  }
-
-  return formattedDuration;
 }

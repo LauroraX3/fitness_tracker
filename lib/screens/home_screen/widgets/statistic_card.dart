@@ -1,17 +1,20 @@
+import 'package:fitness_tracker/models/statistic.dart';
 import 'package:fitness_tracker/style/app_color.dart';
 import 'package:fitness_tracker/utils/date_util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class StatisticCard extends StatelessWidget {
-  StatisticCard(
-      {super.key, required this.calories, required this.totalTrainingTime});
+  StatisticCard({
+    super.key,
+    required this.statistic,
+  });
 
   final String currentDate = DateFormat("dd.MM.yyyy").format(DateTime.now());
-  final double calories;
-  final DateTime totalTrainingTime;
 
-  String caloriesName(double calories) {
+  final Statistic? statistic;
+
+  String _caloriesName(int calories) {
     final roundedCalories = calories.round();
 
     return switch (roundedCalories) {
@@ -25,7 +28,7 @@ class StatisticCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var caloriesInt = calories.round();
+    var caloriesInt = statistic?.calories.round() ?? 0;
     return FractionallySizedBox(
       widthFactor: 0.5,
       child: Card(
@@ -48,7 +51,7 @@ class StatisticCard extends StatelessWidget {
                     color: AppColor.green,
                   ),
                   Text(
-                    ' $caloriesInt ${caloriesName(calories)}',
+                    ' $caloriesInt ${_caloriesName(statistic?.calories ?? 0)}',
                     style: const TextStyle(color: AppColor.darkGreen),
                   ),
                 ],
@@ -61,7 +64,7 @@ class StatisticCard extends StatelessWidget {
                     color: AppColor.green,
                   ),
                   Text(
-                    ' ${durationToString(totalTrainingTime)}',
+                    ' ${durationToString(statistic?.trainingTimeInHours, statistic?.trainingTimeInMinutes)}',
                     style: const TextStyle(color: AppColor.darkGreen),
                   ),
                 ],

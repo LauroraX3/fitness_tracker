@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: Locale('pl', 'PL'),
+      locale: const Locale('pl', 'PL'),
       supportedLocales: const <Locale>[Locale('pl', 'PL')],
       theme: ThemeData(
         primaryColor: AppColor.darkGreen,

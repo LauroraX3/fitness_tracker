@@ -1,6 +1,5 @@
 import 'package:fitness_tracker/models/exercise.dart';
 import 'package:fitness_tracker/style/app_color.dart';
-import 'package:fitness_tracker/utils/date_util.dart';
 import 'package:fitness_tracker/utils/image_util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -36,13 +35,15 @@ class ExerciseTile extends StatelessWidget {
               text: '${exercise.type.difficultyLevel.label},  ',
             ),
             TextSpan(
-                text: '${formatDuration(exercise.duration)} ',
-                style: const TextStyle(color: AppColor.beige)),
+              text: '${exercise.duration} ',
+              style: const TextStyle(color: AppColor.beige),
+            ),
           ],
         ),
       ),
-      subtitleTextStyle:
-          TextStyle(color: exercise.type.difficultyLevel.labelColor),
+      subtitleTextStyle: TextStyle(
+        color: exercise.type.difficultyLevel.labelColor,
+      ),
       trailing: Text(DateFormat('Hm', 'pl').format(exercise.createdDate)),
       leadingAndTrailingTextStyle: const TextStyle(color: AppColor.beige),
     );

@@ -1,15 +1,15 @@
-import 'package:fitness_tracker/models/exercises_types.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:fitness_tracker/models/exercise_goals.dart';
 import 'package:fitness_tracker/style/app_color.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/date_util.dart';
-
 class GoalsChips extends StatelessWidget {
-  const GoalsChips(
-      {super.key, required this.trainingTitle, required this.time});
+  const GoalsChips({
+    super.key,
+    required this.goal,
+  });
 
-  final String trainingTitle;
-  final DateTime time;
+  final ExerciseGoals goal;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,12 @@ class GoalsChips extends StatelessWidget {
       deleteIconColor: AppColor.green,
       labelPadding: const EdgeInsets.all(4.0),
       label: Text(
-        '$trainingTitle przez ${durationToString(time)}',
+        '${goal.trainingTitle} przez ${goal.time}',
         style: const TextStyle(color: AppColor.darkGreen),
       ),
-      onDeleted: () {},
+      onDeleted: () async {
+        FirebaseDatabase.instance.ref('/goal').child(goal.id).remove();
+      },
     );
   }
 }

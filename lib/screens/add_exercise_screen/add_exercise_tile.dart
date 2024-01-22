@@ -20,6 +20,8 @@ class AddExerciseTile extends StatefulWidget {
 }
 
 class _AddExerciseTileState extends State<AddExerciseTile> {
+  late final _imageBytes = fromBase64ToBytes(widget.exerciseTypesItem.image);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,7 +36,7 @@ class _AddExerciseTileState extends State<AddExerciseTile> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.memory(
-              fromBase64ToBytes(widget.exerciseTypesItem.image),
+              _imageBytes,
               height: 50,
             ),
             Text(
